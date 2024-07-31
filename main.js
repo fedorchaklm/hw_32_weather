@@ -4,7 +4,9 @@ const selectedCity = city.value;
 function getWeather(selectedCity) {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
 
-  fetch(url)
+  fetch(url, {
+    referrerPolicy: "unsafe-url",
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
